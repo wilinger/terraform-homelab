@@ -1,7 +1,3 @@
-#--------------------------------
-# Enable userpass auth method
-#--------------------------------
-
 variable "zen_pass" {
   description = "User password"
   type = string

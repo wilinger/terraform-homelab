@@ -3,19 +3,15 @@
 # state files may contains sensitive data (secrets).
 #------------------------------------------------------------------------------
 terraform {
-    backend "local" {
-      # path
+    backend "remote" {
+      hostname = "app.terraform.io"
+      organization = "zencluster"
+      workspaces {
+        name = "terraform-homelab"
+     }
   }
 }
 
-
 # Use Vault provider
 provider "vault" {
-  # It is strongly recommended to configure this provider through the
-  # environment variables:
-  #    - VAULT_ADDR
-  #    - VAULT_TOKEN
-  #    - VAULT_CACERT
-  #    - VAULT_CAPATH
-  #    - etc.  
 }
