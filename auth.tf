@@ -1,7 +1,7 @@
 variable "zen_pass" {
   description = "User password"
-  type = string
-  sensitive = true
+  type        = string
+  sensitive   = true
 }
 
 resource "vault_auth_backend" "userpass" {
@@ -17,7 +17,7 @@ resource "vault_generic_endpoint" "zenuser" {
   depends_on           = [vault_auth_backend.userpass]
   path                 = "auth/userpass/users/zenuser"
   ignore_absent_fields = true
-  data_json = <<EOT
+  data_json            = <<EOT
 {
   "policies": ["admins"],
   "password": "${var.zen_pass}"

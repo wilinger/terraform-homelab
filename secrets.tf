@@ -16,8 +16,8 @@ resource "vault_mount" "transit" {
 
 # Creating an encryption key
 resource "vault_transit_secret_backend_key" "key" {
-  depends_on = [vault_mount.transit]
-  backend    = "transit"
-  name       = "zencrypt"
+  depends_on       = [vault_mount.transit]
+  backend          = "transit"
+  name             = "zencrypt"
   deletion_allowed = true
 }
