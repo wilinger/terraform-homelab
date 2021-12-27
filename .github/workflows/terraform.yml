@@ -85,6 +85,18 @@ jobs:
     - name: Terraform Format
       run: terraform fmt -check
 
+    - name: Show hosts to /etc/hosts
+      run: cat /etc/hosts && cat /etc/resolv.conf
+    
+    - name: ping host
+      run: ping -c 4 vault.zencluster.org
+
+    - name: nc host
+      run: nc 10.10.30.50 -zv 443
+    
+    - name: nc host
+      run: nc vault.zencluster.org -zv 443
+
     # Generates an execution plan for Terraform
     - name: Terraform Plan
       run: terraform plan
