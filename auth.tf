@@ -1,4 +1,4 @@
-variable "zen_pass" {
+variable "ZEN_PASS" {
   description = "User password"
   type        = string
   sensitive   = true
@@ -20,7 +20,7 @@ resource "vault_generic_endpoint" "zenuser" {
   data_json            = <<EOT
 {
   "policies": ["admins"],
-  "password": "${var.zen_pass}"
+  "password": "${var.ZEN_PASS}"
 }
 EOT
 }
