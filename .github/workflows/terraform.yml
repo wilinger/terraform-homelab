@@ -98,7 +98,7 @@ jobs:
       run: nc vault.zencluster.org -zv 443
     
     - name: test curl vault
-      run: curl --header "X-Vault-Token: "${{ secrets.VAULT_TOKEN }} --request LIST https://vault.zencluster.org/v1/kv-v2/metadata/secret/test/
+      run: curl --header "X-Vault-Token:" ${{ secrets.VAULT_TOKEN }} --request LIST https://vault.zencluster.org/v1/kv-v2/metadata/secret/test/
 
     - name: Terraform Plan
       run: terraform plan
