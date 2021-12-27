@@ -58,6 +58,7 @@ jobs:
     timeout-minutes: 10
     env:
       VAULT_ADDR: ${{ secrets.VAULT_ADDR }}
+      VAULT_TOKEN: ${{ secrets.VAULT_TOKEN }}
 
     defaults:
       run:
@@ -74,7 +75,7 @@ jobs:
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
       with:
-        cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+        cli_config_credentials_token: ${{ secrets.VAULT_TOKEN }}
 
     - name: Terraform Init
       run: terraform init
