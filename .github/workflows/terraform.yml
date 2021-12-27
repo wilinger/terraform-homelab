@@ -55,6 +55,7 @@ jobs:
     name: 'Terraform'
     runs-on: self-hosted
     environment: production
+    timeout-minutes: 10
 
     defaults:
       run:
