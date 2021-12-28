@@ -41,7 +41,7 @@ path "sys/mounts"
 }
 
 # List, create, update, and delete key/value secrets at secret/
-path "secret/*"
+path "kv-v2/data/secret/*"
 {
   capabilities = ["create", "read", "update", "delete", "list", "sudo"]
 }
