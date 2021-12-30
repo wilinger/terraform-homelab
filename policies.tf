@@ -11,3 +11,8 @@ resource "vault_policy" "ansible" {
   name   = "ansible"
   policy = file("policies/ansible.hcl")
 }
+
+resource "vault_policy" "argocd" {
+  name   = "ansible"
+  policy = file("policies/argocd.hcl")
+}
