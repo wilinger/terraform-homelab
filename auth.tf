@@ -12,6 +12,13 @@ resource "vault_approle_auth_backend_role" "ansible" {
   token_policies = ["ansible"]
 }
 
+resource "vault_approle_auth_backend_role" "argocd" {
+  backend        = vault_auth_backend.approle.path
+  role_name      = "argocd"
+  token_policies = ["argocd"]
+}
+
+
 # variable "ZEN_PASS" {
 #   description = "User password"
 #   type        = string
