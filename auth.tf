@@ -24,23 +24,23 @@ resource "vault_approle_auth_backend_role" "argocd" {
 
 # Mount vault ssh ca path
 resource "vault_mount" "ssh" {
-    type = "ssh"
-    path = "ssh-client-signer"
+  type = "ssh"
+  path = "ssh-client-signer"
 }
 
 # Enable vault ssh ca and generate signing key
 resource "vault_ssh_secret_backend_ca" "ssh" {
-    backend = vault_mount.ssh.path
-    generate_signing_key = true
+  backend              = vault_mount.ssh.path
+  generate_signing_key = true
 
 }
 
 # SSH role configs for clientrole
 resource "vault_generic_endpoint" "clientrole" {
-  depends_on = [vault_ssh_secret_backend_ca.ssh]
-  path = "ssh-client-signer/roles/clientrole"
+  depends_on           = [vault_ssh_secret_backend_ca.ssh]
+  path                 = "ssh-client-signer/roles/clientrole"
   ignore_absent_fields = true
-  data_json = <<EOT
+  data_json            = <<EOT
 {
   "allow_user_certificates": true,
   "allowed_users": "*",
