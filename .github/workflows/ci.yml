@@ -1,16 +1,14 @@
-name: 'Terraform'
+name: CI
 
 on:
-  push:
-    branches:
-    - main
+  pull_request:
 
 jobs:
   terraform:
     name: 'Terraform'
     runs-on: self-hosted
     environment: production
-    timeout-minutes: 10
+    timeout-minutes: 15
     
     env:
       VAULT_ADDR: ${{ secrets.VAULT_ADDR }}
@@ -42,6 +40,3 @@ jobs:
     - name: Terraform Plan      
       run: terraform plan
 
-    - name: Terraform Apply
-      if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-      run: terraform apply -auto-approve
