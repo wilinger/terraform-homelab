@@ -4,8 +4,8 @@ on:
   pull_request:
 
 jobs:
-  terraform:
-    name: 'Terraform'
+  test:
+    name: 'Terraform Plan'
     runs-on: self-hosted
     environment: production
     timeout-minutes: 15
