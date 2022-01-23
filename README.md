@@ -1,7 +1,7 @@
 <!-- ABOUT THE PROJECT -->
 ## Configuration Management with Ansible
 
-Terraform to provision application resources in a Kubernetes cluster in my homelab.
+Terraform to provision application resources in a Kubernetes cluster for my homelab.
 
 ### Related Repositories
 
